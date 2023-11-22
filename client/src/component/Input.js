@@ -1,32 +1,7 @@
 // import { BiPlus } from "react-icons/bi";
 import { useState } from "react";
 
-export default function Input() {
-  const [task, SetTask] = useState("");
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!task) return false;
-
-    fetch("http://localhost:4000/task", {
-      method: "POST",
-      body: JSON.stringify({
-        task,
-      }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    })
-      .then((res) => {
-        alert("Task created");
-        window.location = "http://localhost:3000/";
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    SetTask("");
-  }
-
+export default function Input({ handleSubmit, task, SetNewtask }) {
   return (
     <form className="flex justify-center items-center" onSubmit={handleSubmit}>
       <input
@@ -35,7 +10,7 @@ export default function Input() {
         placeholder="Enter task"
         value={task}
         onChange={(e) => {
-          SetTask(e.target.value);
+          SetNewtask(e.target.value);
         }}
       />
       <input
