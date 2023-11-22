@@ -18,7 +18,6 @@ function App() {
       .then((result) => {
         result.json().then((data) => {
           SetUpdate(data);
-          console.log(data);
         });
       })
 
