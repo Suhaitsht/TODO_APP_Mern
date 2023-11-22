@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function EditInput({ Single }) {
+export default function EditInput({ Single, SetUpdate, SetUpdatestatus }) {
   const { _id, task } = Single;
   const [Utask, SetUtask] = useState(task);
 
@@ -16,8 +16,8 @@ export default function EditInput({ Single }) {
       credentials: "include",
     })
       .then((res) => {
-        console.log(res);
-        window.location = "//localhost:3000/";
+        SetUpdatestatus(res);
+        SetUpdate([]);
       })
       .catch((err) => {
         console.log(err);

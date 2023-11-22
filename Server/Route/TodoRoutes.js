@@ -4,7 +4,7 @@ const TodoController = require("../Controller/TodoContrller");
 const router = Router();
 
 // create Todotask
-router.get("/task", TodoController.createTask);
+router.post("/task", TodoController.createTask);
 // get all created task
 router.get("/getTask", TodoController.getAllTask);
 // get single todo task
