@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from "react";
-import { FaRegTrashAlt } from "react-icons/fa";
-import { TfiWrite } from "react-icons/tfi";
+
+import RecordData from "./RecordData";
 
 export default function Body({ handleEdit, Task, Setdele }) {
   // Delete Todo
@@ -30,28 +30,19 @@ export default function Body({ handleEdit, Task, Setdele }) {
           </thead>
           <tbody>
             {Task.length === 0 ? (
-              <h2 className="text-lg font-bold flex justify-center">
-                NO Record
-              </h2>
+              <tr className="text-center font-bold">
+                <td className="text-lg font-bold flex justify-center">
+                  NO Record
+                </td>
+              </tr>
             ) : (
               Task.map((todo) => (
                 <tr className="text-center font-bold" key={todo._id}>
-                  <td className="text-xl">{todo.task} </td>
-                  <td className="flex items-center justify-center gap-5 my-4">
-                    <FaRegTrashAlt
-                      id={todo._id}
-                      className="cursor-pointer"
-                      onClick={() => {
-                        handleDelete(todo._id);
-                      }}
-                    />
-                    <TfiWrite
-                      className="cursor-pointer"
-                      onClick={() => {
-                        handleEdit(todo._id);
-                      }}
-                    />
-                  </td>
+                  <RecordData
+                    todo={todo}
+                    handleDelete={handleDelete}
+                    handleEdit={handleEdit}
+                  />
                 </tr>
               ))
             )}
