@@ -5,6 +5,7 @@ import EditInput from "./component/EditInput";
 import { FaThinkPeaks } from "react-icons/fa";
 
 function App() {
+  sas;
   const [Single, SetUpdate] = useState([]);
   const [res, SetRes] = useState(null);
   const [dele, Setdele] = useState(null);
